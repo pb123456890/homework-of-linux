@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Linux的优势 1.开源、免费：Linux的内核是开源的，所以每个人都可以根据自己的偏好，在此基础上开发自己的操作系统。
+2.安全性高：因为Linux是开源的，那么所有人都可以查找漏洞并修复它，所以安全攻击的威胁性大大降低。
+目录结构：  &amp;lsquo;/&amp;rsquo; ：根目录 &amp;lsquo;~&amp;rsquo; ：当前用户目录 &amp;lsquo;/boot&amp;rsquo; ：启动文件 &amp;lsquo;/dev&amp;rsquo; ：设备文件 &amp;lsquo;mnt&amp;rsquo; ：临时挂载文件 &amp;lsquo;bin&amp;rsquo; ：系统程序文件 &amp;lsquo;sbin&amp;rsquo; ：管理员系统程序文件  Shell常用快捷键  clear : 清屏 Ctrl &#43; a : 将光标移到行首 Ctrl &#43; e : 将光标移到行尾 Ctrl &#43; u ：删除光标前的所有字符 Ctrl &#43; k ： 删除光标后的所有字符 Ctrl &#43; →：光标移到下一个单词 Ctrl &#43; ←：光标移到上一个单词 Ctrl &#43; Shift &#43; c ： 复制 Ctrl &#43; Shift &#43; v ：粘贴  文件系统命令 mkdir命令（创建文件夹） mkdir 文件夹名
+pb@debian:~/linuxNode$ ls # ls当前文件夹 pb@debian:~/linuxNode$ mkdir test1 test2 # 创建test1、test2两个文件夹 pb@debian:~/linuxNode$ ls # ls当前文件夹 test1 test2 ls命令（列出当前目录或指定目录的所有文件） pb@debian:~/linuxNode$ ls # 列出当前目录的所有文件 test1 test2 pb@debian:~/linuxNode$ ls -l # 列出所有文件的详细信息 总用量 8 drwxr-xr-x 2 pb pb 4096 12月 13 10:54 test1 drwxr-xr-x 2 pb pb 4096 12月 13 10:54 test2 pb@debian:~/linuxNode$ ls -lh # 加上-h 会将字节转换成适合的单位(K、M、G) 总用量 8.'>
+<title>LinuxNode</title>
+
+<link rel='canonical' href='http://example.org/post/linuxnode/'>
+
+<link rel="stylesheet" href="/scss/style.min.72bf3b6b8742f1a19f075cb2a505ab7a2e10e70d35ecfd60574c046ccb51702a.css"><meta property='og:title' content='LinuxNode'>
+<meta property='og:description' content='Linux的优势 1.开源、免费：Linux的内核是开源的，所以每个人都可以根据自己的偏好，在此基础上开发自己的操作系统。
+2.安全性高：因为Linux是开源的，那么所有人都可以查找漏洞并修复它，所以安全攻击的威胁性大大降低。
+目录结构：  &amp;lsquo;/&amp;rsquo; ：根目录 &amp;lsquo;~&amp;rsquo; ：当前用户目录 &amp;lsquo;/boot&amp;rsquo; ：启动文件 &amp;lsquo;/dev&amp;rsquo; ：设备文件 &amp;lsquo;mnt&amp;rsquo; ：临时挂载文件 &amp;lsquo;bin&amp;rsquo; ：系统程序文件 &amp;lsquo;sbin&amp;rsquo; ：管理员系统程序文件  Shell常用快捷键  clear : 清屏 Ctrl &#43; a : 将光标移到行首 Ctrl &#43; e : 将光标移到行尾 Ctrl &#43; u ：删除光标前的所有字符 Ctrl &#43; k ： 删除光标后的所有字符 Ctrl &#43; →：光标移到下一个单词 Ctrl &#43; ←：光标移到上一个单词 Ctrl &#43; Shift &#43; c ： 复制 Ctrl &#43; Shift &#43; v ：粘贴  文件系统命令 mkdir命令（创建文件夹） mkdir 文件夹名
+pb@debian:~/linuxNode$ ls # ls当前文件夹 pb@debian:~/linuxNode$ mkdir test1 test2 # 创建test1、test2两个文件夹 pb@debian:~/linuxNode$ ls # ls当前文件夹 test1 test2 ls命令（列出当前目录或指定目录的所有文件） pb@debian:~/linuxNode$ ls # 列出当前目录的所有文件 test1 test2 pb@debian:~/linuxNode$ ls -l # 列出所有文件的详细信息 总用量 8 drwxr-xr-x 2 pb pb 4096 12月 13 10:54 test1 drwxr-xr-x 2 pb pb 4096 12月 13 10:54 test2 pb@debian:~/linuxNode$ ls -lh # 加上-h 会将字节转换成适合的单位(K、M、G) 总用量 8.'>
+<meta property='og:url' content='http://example.org/post/linuxnode/'>
+<meta property='og:site_name' content='My New Hugo Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-12-13T11:56:31&#43;08:00'/><meta property='article:modified_time' content='2022-12-13T11:56:31&#43;08:00'/>
+<meta name="twitter:title" content="LinuxNode">
+<meta name="twitter:description" content="Linux的优势 1.开源、免费：Linux的内核是开源的，所以每个人都可以根据自己的偏好，在此基础上开发自己的操作系统。
+2.安全性高：因为Linux是开源的，那么所有人都可以查找漏洞并修复它，所以安全攻击的威胁性大大降低。
+目录结构：  &amp;lsquo;/&amp;rsquo; ：根目录 &amp;lsquo;~&amp;rsquo; ：当前用户目录 &amp;lsquo;/boot&amp;rsquo; ：启动文件 &amp;lsquo;/dev&amp;rsquo; ：设备文件 &amp;lsquo;mnt&amp;rsquo; ：临时挂载文件 &amp;lsquo;bin&amp;rsquo; ：系统程序文件 &amp;lsquo;sbin&amp;rsquo; ：管理员系统程序文件  Shell常用快捷键  clear : 清屏 Ctrl &#43; a : 将光标移到行首 Ctrl &#43; e : 将光标移到行尾 Ctrl &#43; u ：删除光标前的所有字符 Ctrl &#43; k ： 删除光标后的所有字符 Ctrl &#43; →：光标移到下一个单词 Ctrl &#43; ←：光标移到上一个单词 Ctrl &#43; Shift &#43; c ： 复制 Ctrl &#43; Shift &#43; v ：粘贴  文件系统命令 mkdir命令（创建文件夹） mkdir 文件夹名
+pb@debian:~/linuxNode$ ls # ls当前文件夹 pb@debian:~/linuxNode$ mkdir test1 test2 # 创建test1、test2两个文件夹 pb@debian:~/linuxNode$ ls # ls当前文件夹 test1 test2 ls命令（列出当前目录或指定目录的所有文件） pb@debian:~/linuxNode$ ls # 列出当前目录的所有文件 test1 test2 pb@debian:~/linuxNode$ ls -l # 列出所有文件的详细信息 总用量 8 drwxr-xr-x 2 pb pb 4096 12月 13 10:54 test1 drwxr-xr-x 2 pb pb 4096 12月 13 10:54 test2 pb@debian:~/linuxNode$ ls -lh # 加上-h 会将字节转换成适合的单位(K、M、G) 总用量 8.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">My New Hugo Site</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/linuxnode/">LinuxNode</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 13, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="linux的优势">Linux的优势</h1>
+<p>1.开源、免费：Linux的内核是开源的，所以每个人都可以根据自己的偏好，在此基础上开发自己的操作系统。</p>
+<p>2.安全性高：因为Linux是开源的，那么所有人都可以查找漏洞并修复它，所以安全攻击的威胁性大大降低。</p>
+<h1 id="目录结构">目录结构：</h1>
+<ul>
+<li>&lsquo;/&rsquo; ：根目录</li>
+<li>&lsquo;~&rsquo; ：当前用户目录</li>
+<li>&lsquo;/boot&rsquo; ：启动文件</li>
+<li>&lsquo;/dev&rsquo; ：设备文件</li>
+<li>&lsquo;mnt&rsquo;  ：临时挂载文件</li>
+<li>&lsquo;bin&rsquo; ：系统程序文件</li>
+<li>&lsquo;sbin&rsquo; ：管理员系统程序文件</li>
+</ul>
+<h1 id="shell常用快捷键">Shell常用快捷键</h1>
+<ul>
+<li>clear : 清屏</li>
+<li>Ctrl + a : 将光标移到行首</li>
+<li>Ctrl + e : 将光标移到行尾</li>
+<li>Ctrl + u ：删除光标前的所有字符</li>
+<li>Ctrl + k ： 删除光标后的所有字符</li>
+<li>Ctrl + →：光标移到下一个单词</li>
+<li>Ctrl + ←：光标移到上一个单词</li>
+<li>Ctrl + Shift + c ： 复制</li>
+<li>Ctrl + Shift + v ：粘贴</li>
+</ul>
+<h1 id="文件系统命令">文件系统命令</h1>
+<h2 id="mkdir命令创建文件夹">mkdir命令（创建文件夹）</h2>
+<p>mkdir 文件夹名</p>
+<pre><code>pb@debian:~/linuxNode$ ls 	# ls当前文件夹
+pb@debian:~/linuxNode$ mkdir test1 test2 # 创建test1、test2两个文件夹
+pb@debian:~/linuxNode$ ls      	# ls当前文件夹
+test1  test2
+
+</code></pre><h2 id="ls命令列出当前目录或指定目录的所有文件">ls命令（列出当前目录或指定目录的所有文件）</h2>
+<pre><code>pb@debian:~/linuxNode$ ls  	# 列出当前目录的所有文件
+test1  test2
+pb@debian:~/linuxNode$ ls -l 	# 列出所有文件的详细信息
+总用量 8
+drwxr-xr-x 2 pb pb 4096 12月 13 10:54 test1
+drwxr-xr-x 2 pb pb 4096 12月 13 10:54 test2
+pb@debian:~/linuxNode$ ls -lh 	# 加上-h 会将字节转换成适合的单位(K、M、G)
+总用量 8.0K
+drwxr-xr-x 2 pb pb 4.0K 12月 13 10:54 test1
+drwxr-xr-x 2 pb pb 4.0K 12月 13 10:54 test2
+
+
+</code></pre><h2 id="rmdir命令删除空文件夹">rmdir命令（删除空文件夹）</h2>
+<p>rmdir 文件夹名</p>
+<pre><code>pb@debian:~/linuxNode$ ls	# 列出当前目录的所有文件
+test1  test2
+pb@debian:~/linuxNode$ rmdir test1 test2 #删除test1、test2文件夹
+pb@debian:~/linuxNode$ ls	# 列出当前目录的所有文件
+
+</code></pre><h2 id="touch命令创建文件">touch命令（创建文件）</h2>
+<p>touch 文件名</p>
+<pre><code>pb@debian:~/linuxNode$ ls
+pb@debian:~/linuxNode$ touch demo.c
+pb@debian:~/linuxNode$ ls
+demo.c
+
+</code></pre><h2 id="rm-命令删除文件或文件夹">rm 命令（删除文件或文件夹）</h2>
+<p>rm 文件名</p>
+<pre><code>pb@debian:~/linuxNode$ ls
+pb@debian:~/linuxNode$ touch demo.c	# 创建demo.c文件
+pb@debian:~/linuxNode$ ls
+demo.c
+pb@debian:~/linuxNode$ rm demo.c	# 删除demo.c文件
+pb@debian:~/linuxNode$ ls
+
+pb@debian:~/linuxNode$ ls
+pb@debian:~/linuxNode$ mkdir test	# 创建test文件夹
+pb@debian:~/linuxNode$ touch test/demo1.c	# 在test文件夹下创建demo1.c文件
+pb@debian:~/linuxNode$ ls test/
+demo1.c
+pb@debian:~/linuxNode$ rm test		# 直接rm文件夹，直接报错（只有rm的命令只适用于删除文件）
+rm: 无法删除'test': 是一个目录
+pb@debian:~/linuxNode$ rm -rf test	# rm -rf 文件夹，直接删除该文件夹及子文件 r：递归删除 f：强制
+pb@debian:~/linuxNode$ ls test
+ls: 无法访问'test': 没有那个文件或目录
+
+</code></pre><h2 id="cat命令查看文件的内容">cat命令（查看文件的内容）</h2>
+<p>cat 文件名</p>
+<pre><code>pb@debian:~/linuxNode$ vim demo.c	# 编写一个.c文件
+pb@debian:~/linuxNode$ cat demo.c	# 查看demo.c的文件内容
+#include&lt;stdio.h&gt;
+int main(){
+	printf(&quot;hello world!&quot;);
+	return 0;
+}
+
+</code></pre><h2 id="cp命令copy文件或者文件夹">cp命令（copy文件或者文件夹）</h2>
+<p>cp 文件名1 文件名2</p>
+<pre><code>
+pb@debian:~/linuxNode$ ls
+demo.c
+pb@debian:~/linuxNode$ mkdir test1
+pb@debian:~/linuxNode$ cp demo.c test1	# 将demo.c复制到test1文件夹里
+pb@debian:~/linuxNode$ ls test1
+demo.c
+pb@debian:~/linuxNode$ ls
+demo.c  test1
+
+pb@debian:~/linuxNode$ mkdir test2	# 创建test2文件夹
+pb@debian:~/linuxNode$ ls
+demo.c  test1  test2
+pb@debian:~/linuxNode$ cp test1 test2	# 直接cp test1到test2里，直接报错
+cp: -r not specified; omitting directory 'test1'
+pb@debian:~/linuxNode$ cp -r test1 test2 #因为test1里还有其他的东西，所以需要加上-r进行递归
+pb@debian:~/linuxNode$ ls test2
+test1
+</code></pre><h2 id="mv命令重命名文件或移动文件">mv命令（重命名文件或移动文件）</h2>
+<pre><code>pb@debian:~/linuxNode$ ls
+demo.c  test1  test2
+pb@debian:~/linuxNode$ mv demo.c demo1.c	#将demo.c重命名为demo1.c
+pb@debian:~/linuxNode$ ls
+demo1.c  test1  test2
+
+pb@debian:~/linuxNode$ ls
+demo1.c  test1  test2
+pb@debian:~/linuxNode$ ls test1
+demo.c
+pb@debian:~/linuxNode$ mv demo1.c test1		# 将当前目录的demo1.c移到test1文件夹里
+pb@debian:~/linuxNode$ ls
+test1  test2
+pb@debian:~/linuxNode$ ls test1
+demo1.c  demo.c
+
+</code></pre><h1 id="vim编辑">Vim编辑</h1>
+<p>如果linux不是图形化界面的，是不能直接编辑文件的，所以需要用到vim编辑器</p>
+<h2 id="安装">安装</h2>
+<pre><code>pb@debian:~/linuxNode$ sudo apt-get install vim
+[sudo] pb 的密码：
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树     
+正在读取状态信息... 完成     
+vim 已经是最新版 (2:8.0.0197-4+deb9u3)。
+升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。
+
+</code></pre><h2 id="编辑文件">编辑文件</h2>
+<pre><code>pb@debian:~/linuxNode$ vim demo.c
+# 编辑demo.c，如果没有demo.c则会先创建再进入编辑
+</code></pre><p>dd	：删除光标当前行<br>
+yy	：复制光标当前行<br>
+p	：粘贴复制内容<br>
+gg	：跳转到首行<br>
+G	：跳转到行末<br>
+i	: 插入内容<br>
+o	：向下插入内容<br>
+O	：向上插入内容<br>
+esc	：退出	<br>
+:w	：写入内容<br>
+:q	：退出编辑模式<br>
+:wq	：写入并退出编辑模式<br>
+:q!	:强制退出编辑模式	\</p>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 My New Hugo Site
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

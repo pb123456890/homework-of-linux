@@ -1,0 +1,213 @@
+---
+title: "LinuxNode"
+date: 2022-12-13T11:56:31+08:00
+draft: false
+---
+# Linux的优势
+
+1.开源、免费：Linux的内核是开源的，所以每个人都可以根据自己的偏好，在此基础上开发自己的操作系统。
+
+2.安全性高：因为Linux是开源的，那么所有人都可以查找漏洞并修复它，所以安全攻击的威胁性大大降低。
+
+# 目录结构：
+
+* '/' ：根目录
+* '~' ：当前用户目录
+* '/boot' ：启动文件
+* '/dev' ：设备文件
+* 'mnt'  ：临时挂载文件
+* 'bin' ：系统程序文件
+* 'sbin' ：管理员系统程序文件
+
+# Shell常用快捷键
+
+* clear : 清屏
+* Ctrl + a : 将光标移到行首
+* Ctrl + e : 将光标移到行尾
+* Ctrl + u ：删除光标前的所有字符
+* Ctrl + k ： 删除光标后的所有字符
+* Ctrl + →：光标移到下一个单词
+* Ctrl + ←：光标移到上一个单词
+* Ctrl + Shift + c ： 复制
+* Ctrl + Shift + v ：粘贴
+
+# 文件系统命令
+
+## mkdir命令（创建文件夹）
+
+mkdir 文件夹名
+
+```
+pb@debian:~/linuxNode$ ls 	# ls当前文件夹
+pb@debian:~/linuxNode$ mkdir test1 test2 # 创建test1、test2两个文件夹
+pb@debian:~/linuxNode$ ls      	# ls当前文件夹
+test1  test2
+
+```
+
+## ls命令（列出当前目录或指定目录的所有文件）
+
+```
+pb@debian:~/linuxNode$ ls  	# 列出当前目录的所有文件
+test1  test2
+pb@debian:~/linuxNode$ ls -l 	# 列出所有文件的详细信息
+总用量 8
+drwxr-xr-x 2 pb pb 4096 12月 13 10:54 test1
+drwxr-xr-x 2 pb pb 4096 12月 13 10:54 test2
+pb@debian:~/linuxNode$ ls -lh 	# 加上-h 会将字节转换成适合的单位(K、M、G)
+总用量 8.0K
+drwxr-xr-x 2 pb pb 4.0K 12月 13 10:54 test1
+drwxr-xr-x 2 pb pb 4.0K 12月 13 10:54 test2
+
+
+```
+
+## rmdir命令（删除空文件夹）
+
+rmdir 文件夹名
+
+```
+pb@debian:~/linuxNode$ ls	# 列出当前目录的所有文件
+test1  test2
+pb@debian:~/linuxNode$ rmdir test1 test2 #删除test1、test2文件夹
+pb@debian:~/linuxNode$ ls	# 列出当前目录的所有文件
+
+```
+
+## touch命令（创建文件）
+
+touch 文件名
+
+```
+pb@debian:~/linuxNode$ ls
+pb@debian:~/linuxNode$ touch demo.c
+pb@debian:~/linuxNode$ ls
+demo.c
+
+```
+
+## rm 命令（删除文件或文件夹）
+
+rm 文件名
+
+```
+pb@debian:~/linuxNode$ ls
+pb@debian:~/linuxNode$ touch demo.c	# 创建demo.c文件
+pb@debian:~/linuxNode$ ls
+demo.c
+pb@debian:~/linuxNode$ rm demo.c	# 删除demo.c文件
+pb@debian:~/linuxNode$ ls
+
+pb@debian:~/linuxNode$ ls
+pb@debian:~/linuxNode$ mkdir test	# 创建test文件夹
+pb@debian:~/linuxNode$ touch test/demo1.c	# 在test文件夹下创建demo1.c文件
+pb@debian:~/linuxNode$ ls test/
+demo1.c
+pb@debian:~/linuxNode$ rm test		# 直接rm文件夹，直接报错（只有rm的命令只适用于删除文件）
+rm: 无法删除'test': 是一个目录
+pb@debian:~/linuxNode$ rm -rf test	# rm -rf 文件夹，直接删除该文件夹及子文件 r：递归删除 f：强制
+pb@debian:~/linuxNode$ ls test
+ls: 无法访问'test': 没有那个文件或目录
+
+```
+
+## cat命令（查看文件的内容）
+
+cat 文件名
+
+```
+pb@debian:~/linuxNode$ vim demo.c	# 编写一个.c文件
+pb@debian:~/linuxNode$ cat demo.c	# 查看demo.c的文件内容
+#include<stdio.h>
+int main(){
+	printf("hello world!");
+	return 0;
+}
+
+```
+
+## cp命令（copy文件或者文件夹）
+
+cp 文件名1 文件名2
+
+```
+
+pb@debian:~/linuxNode$ ls
+demo.c
+pb@debian:~/linuxNode$ mkdir test1
+pb@debian:~/linuxNode$ cp demo.c test1	# 将demo.c复制到test1文件夹里
+pb@debian:~/linuxNode$ ls test1
+demo.c
+pb@debian:~/linuxNode$ ls
+demo.c  test1
+
+pb@debian:~/linuxNode$ mkdir test2	# 创建test2文件夹
+pb@debian:~/linuxNode$ ls
+demo.c  test1  test2
+pb@debian:~/linuxNode$ cp test1 test2	# 直接cp test1到test2里，直接报错
+cp: -r not specified; omitting directory 'test1'
+pb@debian:~/linuxNode$ cp -r test1 test2 #因为test1里还有其他的东西，所以需要加上-r进行递归
+pb@debian:~/linuxNode$ ls test2
+test1
+```
+
+## mv命令（重命名文件或移动文件）
+
+```
+pb@debian:~/linuxNode$ ls
+demo.c  test1  test2
+pb@debian:~/linuxNode$ mv demo.c demo1.c	#将demo.c重命名为demo1.c
+pb@debian:~/linuxNode$ ls
+demo1.c  test1  test2
+
+pb@debian:~/linuxNode$ ls
+demo1.c  test1  test2
+pb@debian:~/linuxNode$ ls test1
+demo.c
+pb@debian:~/linuxNode$ mv demo1.c test1		# 将当前目录的demo1.c移到test1文件夹里
+pb@debian:~/linuxNode$ ls
+test1  test2
+pb@debian:~/linuxNode$ ls test1
+demo1.c  demo.c
+
+```
+
+# Vim编辑
+
+如果linux不是图形化界面的，是不能直接编辑文件的，所以需要用到vim编辑器
+
+## 安装
+
+```
+pb@debian:~/linuxNode$ sudo apt-get install vim
+[sudo] pb 的密码：
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树     
+正在读取状态信息... 完成     
+vim 已经是最新版 (2:8.0.0197-4+deb9u3)。
+升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。
+
+```
+
+## 编辑文件
+
+```
+pb@debian:~/linuxNode$ vim demo.c
+# 编辑demo.c，如果没有demo.c则会先创建再进入编辑
+```
+
+dd	：删除光标当前行
+yy	：复制光标当前行
+p	：粘贴复制内容
+gg	：跳转到首行
+G	：跳转到行末
+i	: 插入内容
+o	：向下插入内容
+O	：向上插入内容
+esc	：退出
+：w	：写入内容
+：q	：退出编辑模式
+：wq：写入并退出编辑模式
+：q!:强制退出编辑模式
+
+---

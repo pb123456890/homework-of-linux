@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on My New Hugo Site</title>
+        <link>http://example.org/post/</link>
+        <description>Recent content in Posts on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 13 Dec 2022 11:56:31 +0800</lastBuildDate><atom:link href="http://example.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>LinuxNode</title>
+        <link>http://example.org/post/linuxnode/</link>
+        <pubDate>Tue, 13 Dec 2022 11:56:31 +0800</pubDate>
+        
+        <guid>http://example.org/post/linuxnode/</guid>
+        <description>&lt;h1 id=&#34;linux的优势&#34;&gt;Linux的优势&lt;/h1&gt;
+&lt;p&gt;1.开源、免费：Linux的内核是开源的，所以每个人都可以根据自己的偏好，在此基础上开发自己的操作系统。&lt;/p&gt;
+&lt;p&gt;2.安全性高：因为Linux是开源的，那么所有人都可以查找漏洞并修复它，所以安全攻击的威胁性大大降低。&lt;/p&gt;
+&lt;h1 id=&#34;目录结构&#34;&gt;目录结构：&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;/&amp;rsquo; ：根目录&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;~&amp;rsquo; ：当前用户目录&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;/boot&amp;rsquo; ：启动文件&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;/dev&amp;rsquo; ：设备文件&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;mnt&amp;rsquo;  ：临时挂载文件&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;bin&amp;rsquo; ：系统程序文件&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;sbin&amp;rsquo; ：管理员系统程序文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;shell常用快捷键&#34;&gt;Shell常用快捷键&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;clear : 清屏&lt;/li&gt;
+&lt;li&gt;Ctrl + a : 将光标移到行首&lt;/li&gt;
+&lt;li&gt;Ctrl + e : 将光标移到行尾&lt;/li&gt;
+&lt;li&gt;Ctrl + u ：删除光标前的所有字符&lt;/li&gt;
+&lt;li&gt;Ctrl + k ： 删除光标后的所有字符&lt;/li&gt;
+&lt;li&gt;Ctrl + →：光标移到下一个单词&lt;/li&gt;
+&lt;li&gt;Ctrl + ←：光标移到上一个单词&lt;/li&gt;
+&lt;li&gt;Ctrl + Shift + c ： 复制&lt;/li&gt;
+&lt;li&gt;Ctrl + Shift + v ：粘贴&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;文件系统命令&#34;&gt;文件系统命令&lt;/h1&gt;
+&lt;h2 id=&#34;mkdir命令创建文件夹&#34;&gt;mkdir命令（创建文件夹）&lt;/h2&gt;
+&lt;p&gt;mkdir 文件夹名&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pb@debian:~/linuxNode$ ls 	# ls当前文件夹
+pb@debian:~/linuxNode$ mkdir test1 test2 # 创建test1、test2两个文件夹
+pb@debian:~/linuxNode$ ls      	# ls当前文件夹
+test1  test2
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;ls命令列出当前目录或指定目录的所有文件&#34;&gt;ls命令（列出当前目录或指定目录的所有文件）&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;pb@debian:~/linuxNode$ ls  	# 列出当前目录的所有文件
+test1  test2
+pb@debian:~/linuxNode$ ls -l 	# 列出所有文件的详细信息
+总用量 8
+drwxr-xr-x 2 pb pb 4096 12月 13 10:54 test1
+drwxr-xr-x 2 pb pb 4096 12月 13 10:54 test2
+pb@debian:~/linuxNode$ ls -lh 	# 加上-h 会将字节转换成适合的单位(K、M、G)
+总用量 8.0K
+drwxr-xr-x 2 pb pb 4.0K 12月 13 10:54 test1
+drwxr-xr-x 2 pb pb 4.0K 12月 13 10:54 test2
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;rmdir命令删除空文件夹&#34;&gt;rmdir命令（删除空文件夹）&lt;/h2&gt;
+&lt;p&gt;rmdir 文件夹名&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pb@debian:~/linuxNode$ ls	# 列出当前目录的所有文件
+test1  test2
+pb@debian:~/linuxNode$ rmdir test1 test2 #删除test1、test2文件夹
+pb@debian:~/linuxNode$ ls	# 列出当前目录的所有文件
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;touch命令创建文件&#34;&gt;touch命令（创建文件）&lt;/h2&gt;
+&lt;p&gt;touch 文件名&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pb@debian:~/linuxNode$ ls
+pb@debian:~/linuxNode$ touch demo.c
+pb@debian:~/linuxNode$ ls
+demo.c
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;rm-命令删除文件或文件夹&#34;&gt;rm 命令（删除文件或文件夹）&lt;/h2&gt;
+&lt;p&gt;rm 文件名&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pb@debian:~/linuxNode$ ls
+pb@debian:~/linuxNode$ touch demo.c	# 创建demo.c文件
+pb@debian:~/linuxNode$ ls
+demo.c
+pb@debian:~/linuxNode$ rm demo.c	# 删除demo.c文件
+pb@debian:~/linuxNode$ ls
+
+pb@debian:~/linuxNode$ ls
+pb@debian:~/linuxNode$ mkdir test	# 创建test文件夹
+pb@debian:~/linuxNode$ touch test/demo1.c	# 在test文件夹下创建demo1.c文件
+pb@debian:~/linuxNode$ ls test/
+demo1.c
+pb@debian:~/linuxNode$ rm test		# 直接rm文件夹，直接报错（只有rm的命令只适用于删除文件）
+rm: 无法删除&#39;test&#39;: 是一个目录
+pb@debian:~/linuxNode$ rm -rf test	# rm -rf 文件夹，直接删除该文件夹及子文件 r：递归删除 f：强制
+pb@debian:~/linuxNode$ ls test
+ls: 无法访问&#39;test&#39;: 没有那个文件或目录
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;cat命令查看文件的内容&#34;&gt;cat命令（查看文件的内容）&lt;/h2&gt;
+&lt;p&gt;cat 文件名&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pb@debian:~/linuxNode$ vim demo.c	# 编写一个.c文件
+pb@debian:~/linuxNode$ cat demo.c	# 查看demo.c的文件内容
+#include&amp;lt;stdio.h&amp;gt;
+int main(){
+	printf(&amp;quot;hello world!&amp;quot;);
+	return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;cp命令copy文件或者文件夹&#34;&gt;cp命令（copy文件或者文件夹）&lt;/h2&gt;
+&lt;p&gt;cp 文件名1 文件名2&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+pb@debian:~/linuxNode$ ls
+demo.c
+pb@debian:~/linuxNode$ mkdir test1
+pb@debian:~/linuxNode$ cp demo.c test1	# 将demo.c复制到test1文件夹里
+pb@debian:~/linuxNode$ ls test1
+demo.c
+pb@debian:~/linuxNode$ ls
+demo.c  test1
+
+pb@debian:~/linuxNode$ mkdir test2	# 创建test2文件夹
+pb@debian:~/linuxNode$ ls
+demo.c  test1  test2
+pb@debian:~/linuxNode$ cp test1 test2	# 直接cp test1到test2里，直接报错
+cp: -r not specified; omitting directory &#39;test1&#39;
+pb@debian:~/linuxNode$ cp -r test1 test2 #因为test1里还有其他的东西，所以需要加上-r进行递归
+pb@debian:~/linuxNode$ ls test2
+test1
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;mv命令重命名文件或移动文件&#34;&gt;mv命令（重命名文件或移动文件）&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;pb@debian:~/linuxNode$ ls
+demo.c  test1  test2
+pb@debian:~/linuxNode$ mv demo.c demo1.c	#将demo.c重命名为demo1.c
+pb@debian:~/linuxNode$ ls
+demo1.c  test1  test2
+
+pb@debian:~/linuxNode$ ls
+demo1.c  test1  test2
+pb@debian:~/linuxNode$ ls test1
+demo.c
+pb@debian:~/linuxNode$ mv demo1.c test1		# 将当前目录的demo1.c移到test1文件夹里
+pb@debian:~/linuxNode$ ls
+test1  test2
+pb@debian:~/linuxNode$ ls test1
+demo1.c  demo.c
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;vim编辑&#34;&gt;Vim编辑&lt;/h1&gt;
+&lt;p&gt;如果linux不是图形化界面的，是不能直接编辑文件的，所以需要用到vim编辑器&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;pb@debian:~/linuxNode$ sudo apt-get install vim
+[sudo] pb 的密码：
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树     
+正在读取状态信息... 完成     
+vim 已经是最新版 (2:8.0.0197-4+deb9u3)。
+升级了 0 个软件包，新安装了 0 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;编辑文件&#34;&gt;编辑文件&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;pb@debian:~/linuxNode$ vim demo.c
+# 编辑demo.c，如果没有demo.c则会先创建再进入编辑
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;dd	：删除光标当前行&lt;br&gt;
+yy	：复制光标当前行&lt;br&gt;
+p	：粘贴复制内容&lt;br&gt;
+gg	：跳转到首行&lt;br&gt;
+G	：跳转到行末&lt;br&gt;
+i	: 插入内容&lt;br&gt;
+o	：向下插入内容&lt;br&gt;
+O	：向上插入内容&lt;br&gt;
+esc	：退出	&lt;br&gt;
+:w	：写入内容&lt;br&gt;
+:q	：退出编辑模式&lt;br&gt;
+:wq	：写入并退出编辑模式&lt;br&gt;
+:q!	:强制退出编辑模式	\&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
+        <title>Test</title>
+        <link>http://example.org/post/test/</link>
+        <pubDate>Tue, 13 Dec 2022 00:16:32 +0800</pubDate>
+        
+        <guid>http://example.org/post/test/</guid>
+        <description>&lt;h1 id=&#34;linux的优势&#34;&gt;Linux的优势&lt;/h1&gt;
+&lt;p&gt;1.开源、免费：Linux的内核是开源的，所以每个人都可以根据自己的偏好，在此基础上开发自己的操作系统。&lt;/p&gt;
+&lt;p&gt;2.安全性高：因为Linux是开源的，那么所有人都可以查找漏洞并修复它，所以安全攻击的威胁性大大降低。&lt;/p&gt;
+&lt;h1 id=&#34;目录结构&#34;&gt;目录结构：&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;/&amp;rsquo; ：根目录&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;~&amp;rsquo; ：当前用户目录&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;/boot&amp;rsquo; ：启动文件&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;/dev&amp;rsquo; ：设备文件&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;mnt&amp;rsquo;  ：临时挂载文件&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;bin&amp;rsquo; ：系统程序文件&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;sbin&amp;rsquo; ：管理员系统程序文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;shell常用快捷键&#34;&gt;Shell常用快捷键&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;clear : 清屏&lt;/li&gt;
+&lt;li&gt;Ctrl + a : 将光标移到行首&lt;/li&gt;
+&lt;li&gt;Ctrl + e : 将光标移到行尾&lt;/li&gt;
+&lt;li&gt;Ctrl + u ：删除光标前的所有字符&lt;/li&gt;
+&lt;li&gt;Ctrl + k ： 删除光标后的所有字符&lt;/li&gt;
+&lt;li&gt;Ctrl + →：光标移到下一个单词&lt;/li&gt;
+&lt;li&gt;Ctrl + ←：光标移到上一个单词&lt;/li&gt;
+&lt;li&gt;Ctrl + Shift + c ： 复制&lt;/li&gt;
+&lt;li&gt;Ctrl + Shift + v ：粘贴&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;文件系统命令&#34;&gt;文件系统命令&lt;/h1&gt;
+&lt;h2 id=&#34;cd命令&#34;&gt;cd命令&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;cp test.c test
+&lt;/code&gt;&lt;/pre&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

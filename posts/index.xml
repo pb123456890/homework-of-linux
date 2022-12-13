@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on My New Hugo Site</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Dec 2022 23:22:58 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>i am pb</title>
+      <link>http://example.org/posts/test/</link>
+      <pubDate>Mon, 12 Dec 2022 23:22:58 +0800</pubDate>
+      
+      <guid>http://example.org/posts/test/</guid>
+      <description>Linux的优势 1.开源、免费：Linux的内核是开源的，所以每个人都可以根据自己的偏好，在此基础上开发自己的操作系统。
+2.安全性高：因为Linux是开源的，那么所有人都可以查找漏洞并修复它，所以安全攻击的威胁性大大降低。
+目录结构：  &amp;lsquo;/&amp;rsquo; ：根目录 &amp;lsquo;~&amp;rsquo; ：当前用户目录 &amp;lsquo;/boot&amp;rsquo; ：启动文件 &amp;lsquo;/dev&amp;rsquo; ：设备文件 &amp;lsquo;mnt&amp;rsquo; ：临时挂载文件 &amp;lsquo;bin&amp;rsquo; ：系统程序文件 &amp;lsquo;sbin&amp;rsquo; ：管理员系统程序文件  Shell常用快捷键  clear : 清屏 Ctrl + a : 将光标移到行首 Ctrl + e : 将光标移到行尾 Ctrl + u ：删除光标前的所有字符 Ctrl + k ： 删除光标后的所有字符 Ctrl + →：光标移到下一个单词 Ctrl + ←：光标移到上一个单词 Ctrl + Shift + c ： 复制 Ctrl + Shift + v ：粘贴  文件系统命令 cd命令 cp test.c test </description>
+    </item>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </channel>
+</rss>
